@@ -1,0 +1,16 @@
+version: '3'
+services:
+  client:
+    build: client
+    ports:
+      - '8080:8080'
+  server:
+    build: server
+    environment:
+      - PORT=3000
+      - BASE_API_URL=api
+      - CLIENT_URL=http://localhost:8080
+      - JWT_SECRET='0a2bb0a00e1de44aede989c5f511057951a05eb8c15864195f70e014cd97845d5bf7df8111cc653e10651984c08cffa8314d63013dbcb98845693afe750af9ae'
+      - MONGO_URI='mongodb+srv://Palak:Arkaeve@123@eventcluster.puq6w7e.mongodb.net/?retryWrites=true&w=majority&appName=EventCluster'
+    ports:
+      - '3000:3000'
